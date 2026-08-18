@@ -21,4 +21,12 @@ public abstract class Pedido {
     public double getValorPedido() {
         return valorPedido;
     }
+
+    public static void exibirPedido(int idPedido, String nomeCliente, double valorPedido) {
+        System.out.printf("""
+                ID: %d
+                Nome: %s
+                Valor: %.2f
+                """,  idPedido, nomeCliente, valorPedido);
+    }
 }
