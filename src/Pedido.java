@@ -29,4 +29,6 @@ public abstract class Pedido {
                 Valor: %.2f
                 """,  idPedido, nomeCliente, valorPedido);
     }
+
+    abstract public double calcularValorFinal();
 }
