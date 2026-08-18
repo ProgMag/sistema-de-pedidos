@@ -9,4 +9,16 @@ public abstract class Pedido {
         this.nomeCliente = nomeCliente;
         this.valorPedido = valorPedido;
     }
+
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public double getValorPedido() {
+        return valorPedido;
+    }
 }
