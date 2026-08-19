@@ -15,4 +15,9 @@ public class PedidoDelivery extends Pedido implements ComDesconto, ComTaxaEntreg
     public double calcularTaxaEntrega(double distanciaKm) {
         return 2.50 * distanciaKm;
     }
+
+    @Override
+    public double calcularValorFinal() {
+        return calcularValoComTaxa(getValorPedido(), distanciaKm);
+    }
 }
