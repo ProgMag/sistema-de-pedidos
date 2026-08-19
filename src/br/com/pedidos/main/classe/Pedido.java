@@ -26,9 +26,10 @@ public abstract class Pedido {
 
     public void exibirPedido() {
         System.out.printf("""
+                
                 ID: %d
                 Nome: %s
-                Valor: %.2f
+                Valor: R$ %.2f
                 """,  idPedido, nomeCliente, valorPedido);
     }
 

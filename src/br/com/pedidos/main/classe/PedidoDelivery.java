@@ -26,8 +26,7 @@ public class PedidoDelivery extends Pedido implements ComTaxaEntrega {
     public void exibirPedido() {
         super.exibirPedido();
         System.out.printf("""
-                Taxa de entrega: R$ %.2f
                 Valor final do pedido : R$ %.2f
-                """,  calcularTaxaEntrega(distanciaKm), calcularValorFinal());
+                """, calcularValorFinal());
     }
 }

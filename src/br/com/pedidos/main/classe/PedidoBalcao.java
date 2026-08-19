@@ -22,8 +22,7 @@ public class PedidoBalcao extends Pedido implements ComDesconto {
     public void exibirPedido() {
         super.exibirPedido();
         System.out.printf("""
-                Desconto: R$ %.2f
                 Valor final do pedido : R$ %.2f
-                """, calcularDesconto(getValorPedido()), calcularValorFinal());
+                """, calcularValorFinal());
     }
 }
