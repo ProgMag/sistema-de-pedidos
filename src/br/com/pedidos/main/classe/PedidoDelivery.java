@@ -10,4 +10,9 @@ public class PedidoDelivery extends Pedido implements ComDesconto, ComTaxaEntreg
     public PedidoDelivery(int idPedido, String nomeCliente, double valorPedido) {
         super(idPedido, nomeCliente, valorPedido);
     }
+
+    @Override
+    public double calcularTaxaEntrega(double distanciaKm) {
+        return 2.50 * distanciaKm;
+    }
 }
