@@ -20,4 +20,13 @@ public class PedidoDelivery extends Pedido implements ComDesconto, ComTaxaEntreg
     public double calcularValorFinal() {
         return calcularValoComTaxa(getValorPedido(), distanciaKm);
     }
+
+    @Override
+    public void exibirPedido() {
+        super.exibirPedido();
+        System.out.printf("""
+                Taxa de entrega: R$ %.2f
+                Valor final do pedido : R$ %.2f
+                """,  calcularTaxaEntrega(distanciaKm), calcularValorFinal());
+    }
 }
