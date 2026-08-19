@@ -1,4 +1,4 @@
-package main;
+package br.com.pedidos.main.interfaces;
 
 public interface ComTaxaEntrega {
 

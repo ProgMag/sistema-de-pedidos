@@ -1,4 +1,4 @@
-package main;
+package br.com.pedidos.main.classe;
 
 public abstract class Pedido {
 

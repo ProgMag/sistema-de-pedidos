@@ -1,6 +1,8 @@
-package main;
+package br.com.pedidos.main.classe;
 
-public class PedidoBalcao extends Pedido implements ComDesconto{
+import br.com.pedidos.main.interfaces.ComDesconto;
+
+public class PedidoBalcao extends Pedido implements ComDesconto {
 
     public PedidoBalcao(int idPedido, String nomeCliente, double valorPedido) {
         super(idPedido, nomeCliente, valorPedido);
