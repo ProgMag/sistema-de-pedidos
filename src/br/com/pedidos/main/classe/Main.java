@@ -10,7 +10,7 @@ public class Main {
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
-        pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14));
+        pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
 
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
@@ -26,7 +26,7 @@ public class Main {
             if (pedido instanceof ComTaxaEntrega taxa) {
                 System.out.printf("""
                         A taxa de entrega é %.2f
-                        """, taxa.calcularTaxaEntrega(pedido.getValorPedido()));
+                        """, taxa.calcularTaxaEntrega(taxa.getDistanciaKm()));
             } else {
                 System.out.print("Seu pedido não se adequa a uma taxa de entrega\n");
             }

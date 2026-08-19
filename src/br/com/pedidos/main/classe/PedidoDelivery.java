@@ -1,6 +1,5 @@
 package br.com.pedidos.main.classe;
 
-import br.com.pedidos.main.interfaces.ComDesconto;
 import br.com.pedidos.main.interfaces.ComTaxaEntrega;
 
 public class PedidoDelivery extends Pedido implements ComTaxaEntrega {
@@ -13,13 +12,18 @@ public class PedidoDelivery extends Pedido implements ComTaxaEntrega {
     }
 
     @Override
+    public double getDistanciaKm() {
+        return distanciaKm;
+    }
+
+    @Override
     public double calcularTaxaEntrega(double distanciaKm) {
         return 2.50 * distanciaKm;
     }
 
     @Override
     public double calcularValorFinal() {
-        return calcularValoComTaxa(getValorPedido(), distanciaKm);
+        return calcularValorComTaxa(getValorPedido(), distanciaKm);
     }
 
     @Override
