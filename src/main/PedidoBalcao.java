@@ -10,4 +10,9 @@ public class PedidoBalcao extends Pedido implements ComDesconto{
     public double calcularDesconto(double valorPedido) {
         return valorPedido * 0.08;
     }
+
+    @Override
+    public double calcularValorFinal() {
+        return calcularValorComDesconto(getValorPedido());
+    }
 }
