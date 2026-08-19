@@ -24,7 +24,7 @@ public abstract class Pedido {
         return valorPedido;
     }
 
-    public void exibirPedido(int idPedido, String nomeCliente, double valorPedido) {
+    public void exibirPedido() {
         System.out.printf("""
                 ID: %d
                 Nome: %s
