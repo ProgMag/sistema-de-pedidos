@@ -4,6 +4,7 @@ import br.com.pedidos.main.interfaces.ComDesconto;
 import br.com.pedidos.main.interfaces.ComTaxaEntrega;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Main {
@@ -13,6 +14,7 @@ public class Main {
         ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
 
         Predicate<Pedido> temTaxaDeEntrega = pedido -> pedido instanceof ComTaxaEntrega;
+
         Function<Pedido, String> formatarResumo = pedido ->
                 "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(), pedido.getValorPedido());
 
@@ -49,6 +51,9 @@ public class Main {
             if (temTaxaDeEntrega.test(pedido)) {
                 System.out.println("Tem taxa de entrega");
             }
+
+            System.out.println(formatarResumo.apply(pedido));
+
         }
     }
 }
