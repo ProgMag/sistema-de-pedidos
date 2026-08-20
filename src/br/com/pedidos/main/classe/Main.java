@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class Main {
     static void main() {
 
+        ComDesconto descontoAniversario = valorPedido ->  valorPedido * 0.2;
+        ComDesconto descontoFidelidade = valorPedido ->  valorPedido * 0.05;
+
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
