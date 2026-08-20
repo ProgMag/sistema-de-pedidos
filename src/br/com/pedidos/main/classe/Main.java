@@ -11,6 +11,9 @@ public class Main {
         ComDesconto descontoAniversario = valorPedido ->  valorPedido * 0.2;
         ComDesconto descontoFidelidade = valorPedido ->  valorPedido * 0.05;
 
+        double valorDescontoAniversario = descontoAniversario.calcularValorComDesconto(40.99);
+        double valorDescontoFidelidade = descontoAniversario.calcularValorComDesconto(40.99);
+
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
