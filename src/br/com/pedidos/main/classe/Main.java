@@ -4,6 +4,7 @@ import br.com.pedidos.main.interfaces.ComDesconto;
 import br.com.pedidos.main.interfaces.ComTaxaEntrega;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Main {
     static void main() {
