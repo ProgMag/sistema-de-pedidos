@@ -14,7 +14,7 @@ public class Main {
 
         Predicate<Pedido> temTaxaDeEntrega = pedido -> pedido instanceof ComTaxaEntrega;
         Function<Pedido, String> formatarResumo = pedido ->
-                "#%d - Nome: %s - valor: %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(), pedido.getValorPedido());
+                "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(), pedido.getValorPedido());
 
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
