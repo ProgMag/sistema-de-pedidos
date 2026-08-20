@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Main {
     static void main() {
 
-        ComDesconto descontoAniversario = valorPedido -> valorPedido * 0.2;
-        ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
+        ComDesconto valorFinalComAniversario = valorPedido -> valorPedido * 0.2;
+        ComDesconto valorFinalComFidelidade = valorPedido -> valorPedido * 0.05;
 
         System.out.printf("");
 
