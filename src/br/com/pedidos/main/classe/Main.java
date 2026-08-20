@@ -4,12 +4,15 @@ import br.com.pedidos.main.interfaces.ComDesconto;
 import br.com.pedidos.main.interfaces.ComTaxaEntrega;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Main {
     static void main() {
 
         ComDesconto descontoAniversario = valorPedido -> valorPedido * 0.2;
         ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
+
+        Predicate<Pedido> temTaxaDeEntrega = pedido -> pedido instanceof ComTaxaEntrega;
 
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
@@ -39,6 +42,10 @@ public class Main {
                         """, taxa.calcularTaxaEntrega(taxa.getDistanciaKm()));
             } else {
                 System.out.print("Seu pedido não se adequa a uma taxa de entrega\n");
+            }
+
+            if (temTaxaDeEntrega.test(pedido)) {
+                System.out.println("Tem taxa de entrega");
             }
         }
     }
