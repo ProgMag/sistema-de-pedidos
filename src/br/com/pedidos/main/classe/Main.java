@@ -42,9 +42,16 @@ public class Main {
         }
     }
 
-public static void mostrarComDesconto(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario, ComDesconto descontoFidelidade) {
-    for (Pedido pedido : pedidos) {
-        pedido.exibirPedido();
+    public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario, ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido, String> formatarResumo) {
+        for (Pedido pedido : pedidos) {
+            pedido.exibirPedido();
+            mostrarComDesconto(pedido, descontoAniversario, descontoFidelidade);
+            mostrarComTaxaEntrega(pedido, temTaxaDeEntrega, formatarResumo);
+
+        }
+    }
+
+    public static void mostrarComDesconto(Pedido pedido, ComDesconto descontoAniversario, ComDesconto descontoFidelidade) {
 
         if (pedido instanceof ComDesconto desconto) {
 
