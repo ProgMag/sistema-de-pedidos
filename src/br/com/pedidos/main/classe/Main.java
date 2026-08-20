@@ -23,23 +23,8 @@ public class Main {
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
 
-        mostrarComDesconto(pedidos, descontoAniversario, descontoFidelidade);
 
-            if (pedido instanceof ComTaxaEntrega taxa) {
-                System.out.printf("""
-                        A taxa de entrega é %.2f
-                        """, taxa.calcularTaxaEntrega(taxa.getDistanciaKm()));
-            } else {
-                System.out.print("Seu pedido não se adequa a uma taxa de entrega\n");
-            }
-
-            if (temTaxaDeEntrega.test(pedido)) {
-                System.out.println("Tem taxa de entrega");
-            }
-
-            System.out.println(formatarResumo.apply(pedido));
-
-        }
+        mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo);
     }
 
     public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario, ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido, String> formatarResumo) {
