@@ -1,5 +1,6 @@
 package br.com.pedidos.main.interfaces;
 
+@FunctionalInterface
 public interface ComDesconto {
 
     double calcularDesconto(double valorPedido);

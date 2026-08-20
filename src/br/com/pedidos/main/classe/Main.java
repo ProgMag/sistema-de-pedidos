@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class Main {
     static void main() {
 
+        ComDesconto descontoAniversario = valorPedido -> valorPedido * 0.2;
+        ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
+
+
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
@@ -16,9 +20,15 @@ public class Main {
             pedido.exibirPedido();
 
             if (pedido instanceof ComDesconto desconto) {
+
+                double valorFinalComAniversario = descontoAniversario.calcularDesconto(pedido.getValorPedido());
+                double valorFinalComFidelidade = descontoFidelidade.calcularDesconto(pedido.getValorPedido());
+
                 System.out.printf("""
                         Você teve um desconto de %.2f reais
-                        """, desconto.calcularDesconto(pedido.getValorPedido()));
+                        Desconto de aniversário: R$ %.2f
+                        Desconto de fidelidade: R$ %.2f
+                        """, desconto.calcularDesconto(pedido.getValorPedido()), valorFinalComAniversario, valorFinalComFidelidade);
             } else {
                 System.out.print("Você não recebeu desconto\n");
             }
