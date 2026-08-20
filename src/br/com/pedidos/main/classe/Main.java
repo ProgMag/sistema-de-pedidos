@@ -42,6 +42,10 @@ public class Main {
             } else {
                 System.out.print("Seu pedido não se adequa a uma taxa de entrega\n");
             }
+
+            if (temTaxaDeEntrega.test(pedido)) {
+                System.out.println("Tem taxa de entrega");
+            }
         }
     }
 }
