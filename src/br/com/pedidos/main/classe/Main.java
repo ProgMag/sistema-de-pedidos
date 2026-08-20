@@ -23,22 +23,7 @@ public class Main {
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
 
-        for (Pedido pedido : pedidos) {
-            pedido.exibirPedido();
-
-            if (pedido instanceof ComDesconto desconto) {
-
-                double valorFinalComAniversario = descontoAniversario.calcularDesconto(pedido.getValorPedido());
-                double valorFinalComFidelidade = descontoFidelidade.calcularDesconto(pedido.getValorPedido());
-
-                System.out.printf("""
-                        Você teve um desconto de %.2f reais
-                        Desconto de aniversário: R$ %.2f
-                        Desconto de fidelidade: R$ %.2f
-                        """, desconto.calcularDesconto(pedido.getValorPedido()), valorFinalComAniversario, valorFinalComFidelidade);
-            } else {
-                System.out.print("Você não recebeu desconto\n");
-            }
+        mostrarComDesconto(pedidos, descontoAniversario, descontoFidelidade);
 
             if (pedido instanceof ComTaxaEntrega taxa) {
                 System.out.printf("""
@@ -54,6 +39,25 @@ public class Main {
 
             System.out.println(formatarResumo.apply(pedido));
 
+        }
+    }
+
+public static void mostrarComDesconto(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario, ComDesconto descontoFidelidade) {
+    for (Pedido pedido : pedidos) {
+        pedido.exibirPedido();
+
+        if (pedido instanceof ComDesconto desconto) {
+
+            double valorFinalComAniversario = descontoAniversario.calcularDesconto(pedido.getValorPedido());
+            double valorFinalComFidelidade = descontoFidelidade.calcularDesconto(pedido.getValorPedido());
+
+            System.out.printf("""
+                    Você teve um desconto de %.2f reais
+                    Desconto de aniversário: R$ %.2f
+                    Desconto de fidelidade: R$ %.2f
+                    """, desconto.calcularDesconto(pedido.getValorPedido()), valorFinalComAniversario, valorFinalComFidelidade);
+        } else {
+            System.out.print("Você não recebeu desconto\n");
         }
     }
 }
