@@ -8,11 +8,10 @@ import java.util.ArrayList;
 public class Main {
     static void main() {
 
-        ComDesconto descontoAniversario = valorPedido ->  valorPedido * 0.2;
-        ComDesconto descontoFidelidade = valorPedido ->  valorPedido * 0.05;
+        ComDesconto descontoAniversario = valorPedido -> valorPedido * 0.2;
+        ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
 
-        double valorDescontoAniversario = descontoAniversario.calcularValorComDesconto(40.99);
-        double valorDescontoFidelidade = descontoAniversario.calcularValorComDesconto(40.99);
+        System.out.printf("");
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
@@ -20,6 +19,9 @@ public class Main {
 
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
+
+            double valorDescontoAniversario = descontoAniversario.calcularValorComDesconto(pedido.getValorPedido());
+            double valorDescontoFidelidade = descontoFidelidade.calcularValorComDesconto(pedido.getValorPedido());
 
             if (pedido instanceof ComDesconto desconto) {
                 System.out.printf("""
