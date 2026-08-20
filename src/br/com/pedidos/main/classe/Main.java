@@ -20,8 +20,8 @@ public class Main {
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
 
-            double valorDescontoAniversario = valorFinalComAniversario.calcularDesconto(pedido.getValorPedido());
-            double valorDescontoFidelidade = valorFinalComFidelidade.calcularDesconto(pedido.getValorPedido());
+            double valorFinalComAniversario = descontoAniversario.calcularDesconto(pedido.getValorPedido());
+            double valorFinalComFidelidade = descontoFidelidade.calcularDesconto(pedido.getValorPedido());
 
             if (pedido instanceof ComDesconto desconto) {
                 System.out.printf("""
