@@ -28,7 +28,7 @@ public class Main {
                         Você teve um desconto de %.2f reais
                         Desconto de aniversário: R$ %.2f
                         Desconto de fidelidade: R$ %.2f
-                        """, desconto.calcularDesconto(pedido.getValorPedido()), valorDescontoAniversario, valorDescontoFidelidade);
+                        """, desconto.calcularDesconto(pedido.getValorPedido()), valorFinalComAniversario, valorFinalComFidelidade);
             } else {
                 System.out.print("Você não recebeu desconto\n");
             }
