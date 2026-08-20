@@ -67,4 +67,21 @@ public class Main {
             System.out.print("Você não recebeu desconto\n");
         }
     }
+
+    public static void mostrarComTaxaEntrega(Pedido pedido, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido, String> formatarResumo) {
+
+        if (pedido instanceof ComTaxaEntrega taxa) {
+            System.out.printf("""
+                    A taxa de entrega é %.2f
+                    """, taxa.calcularTaxaEntrega(taxa.getDistanciaKm()));
+        } else {
+            System.out.print("Seu pedido não se adequa a uma taxa de entrega\n");
+        }
+
+        if (temTaxaDeEntrega.test(pedido)) {
+            System.out.println("Tem taxa de entrega");
+        }
+
+        System.out.println(formatarResumo.apply(pedido));
+    }
 }
