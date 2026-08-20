@@ -11,6 +11,8 @@ public class Main {
         ComDesconto descontoAniversario = valorPedido -> valorPedido * 0.2;
         ComDesconto descontoFidelidade = valorPedido -> valorPedido * 0.05;
 
+        Predicate<Pedido> temTaxaDeEntrega = pedido -> pedido instanceof ComTaxaEntrega;
+
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
