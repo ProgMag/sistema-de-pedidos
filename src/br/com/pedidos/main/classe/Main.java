@@ -26,7 +26,9 @@ public class Main {
             if (pedido instanceof ComDesconto desconto) {
                 System.out.printf("""
                         Você teve um desconto de %.2f reais
-                        """, desconto.calcularDesconto(pedido.getValorPedido()));
+                        Desconto de aniversário: R$ %.2f
+                        Desconto de fidelidade: R$ %.2f
+                        """, desconto.calcularDesconto(pedido.getValorPedido()), valorDescontoAniversario, valorDescontoFidelidade);
             } else {
                 System.out.print("Você não recebeu desconto\n");
             }
