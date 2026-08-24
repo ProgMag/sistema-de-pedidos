@@ -20,6 +20,8 @@ public class Main {
                 "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(),
                         pedido.getValorPedido());
 
+        Consumer<String> imprimirResumo = System.out::println;
+
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
