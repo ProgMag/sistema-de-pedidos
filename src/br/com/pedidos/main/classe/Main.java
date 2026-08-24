@@ -16,7 +16,8 @@ public class Main {
         Predicate<Pedido> temTaxaDeEntrega = pedido -> pedido instanceof ComTaxaEntrega;
 
         Function<Pedido, String> formatarResumo = pedido ->
-                "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(), pedido.getValorPedido());
+                "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(),
+                        pedido.getValorPedido());
 
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
@@ -27,7 +28,10 @@ public class Main {
         mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo);
     }
 
-    public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario, ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido, String> formatarResumo) {
+    public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario,
+                                          ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega,
+                                          Function<Pedido, String> formatarResumo) {
+
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
             mostrarComDesconto(pedido, descontoAniversario, descontoFidelidade);
@@ -53,7 +57,8 @@ public class Main {
         }
     }
 
-    public static void mostrarComTaxaEntrega(Pedido pedido, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido, String> formatarResumo) {
+    public static void mostrarComTaxaEntrega(Pedido pedido, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido,
+            String> formatarResumo) {
 
         if (pedido instanceof ComTaxaEntrega taxa) {
             System.out.printf("""
