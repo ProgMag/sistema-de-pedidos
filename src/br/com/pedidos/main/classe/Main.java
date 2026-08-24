@@ -75,6 +75,6 @@ public class Main {
             System.out.println("Tem taxa de entrega");
         }
 
-        System.out.println(formatarResumo.apply(pedido));
+        imprimirResumo.accept(formatarResumo.apply(pedido));
     }
 }
