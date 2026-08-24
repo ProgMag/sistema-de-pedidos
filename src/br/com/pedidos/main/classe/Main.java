@@ -4,6 +4,7 @@ import br.com.pedidos.main.interfaces.ComDesconto;
 import br.com.pedidos.main.interfaces.ComTaxaEntrega;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -19,23 +20,25 @@ public class Main {
                 "Resumo: #%d - Nome: %s - valor: R$ %.2f".formatted(pedido.getIdPedido(), pedido.getNomeCliente(),
                         pedido.getValorPedido());
 
+        Consumer<String> imprimirResumo = System.out::println;
+
 
         ArrayList<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new PedidoBalcao(1, "Ricardo", 40.99));
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
 
 
-        mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo);
+        mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo, imprimirResumo);
     }
 
     public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario,
                                           ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega,
-                                          Function<Pedido, String> formatarResumo) {
+                                          Function<Pedido, String> formatarResumo, Consumer<String> imprimirResumo) {
 
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
             mostrarComDesconto(pedido, descontoAniversario, descontoFidelidade);
-            mostrarComTaxaEntrega(pedido, temTaxaDeEntrega, formatarResumo);
+            mostrarComTaxaEntrega(pedido, temTaxaDeEntrega, formatarResumo, imprimirResumo);
 
         }
     }
@@ -58,7 +61,7 @@ public class Main {
     }
 
     public static void mostrarComTaxaEntrega(Pedido pedido, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido,
-            String> formatarResumo) {
+            String> formatarResumo, Consumer<String> imprimirResumo) {
 
         if (pedido instanceof ComTaxaEntrega taxa) {
             System.out.printf("""
@@ -72,6 +75,6 @@ public class Main {
             System.out.println("Tem taxa de entrega");
         }
 
-        System.out.println(formatarResumo.apply(pedido));
+        imprimirResumo.accept(formatarResumo.apply(pedido));
     }
 }
