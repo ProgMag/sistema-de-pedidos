@@ -28,17 +28,17 @@ public class Main {
         pedidos.add(new PedidoDelivery(2, "Claudio", 32.89, 14.00));
 
 
-        mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo);
+        mostrarInformacoes(pedidos, descontoAniversario, descontoFidelidade, temTaxaDeEntrega, formatarResumo, imprimirResumo);
     }
 
     public static void mostrarInformacoes(ArrayList<Pedido> pedidos, ComDesconto descontoAniversario,
                                           ComDesconto descontoFidelidade, Predicate<Pedido> temTaxaDeEntrega,
-                                          Function<Pedido, String> formatarResumo) {
+                                          Function<Pedido, String> formatarResumo, Consumer<String> imprimirResumo) {
 
         for (Pedido pedido : pedidos) {
             pedido.exibirPedido();
             mostrarComDesconto(pedido, descontoAniversario, descontoFidelidade);
-            mostrarComTaxaEntrega(pedido, temTaxaDeEntrega, formatarResumo);
+            mostrarComTaxaEntrega(pedido, temTaxaDeEntrega, formatarResumo, imprimirResumo);
 
         }
     }
@@ -61,7 +61,7 @@ public class Main {
     }
 
     public static void mostrarComTaxaEntrega(Pedido pedido, Predicate<Pedido> temTaxaDeEntrega, Function<Pedido,
-            String> formatarResumo) {
+            String> formatarResumo, Consumer<String> imprimirResumo) {
 
         if (pedido instanceof ComTaxaEntrega taxa) {
             System.out.printf("""
